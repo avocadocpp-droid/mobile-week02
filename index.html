@@ -1,10 +1,1022 @@
 <!DOCTYPE html>
-<html lang="th">
-<head><meta charset="UTF-8"><title>week02</title></head>
-<body>
-<h1>หน้าแนะนำตัว</h1>
-<p>ชื่อเล่น: เจ๊ก</p>
-<p>สาขา: คอมพิวเตอร์ธุรกิจ</p>
-<p>ร้านโครงงาน: ร้านขายไอดีเกมส์</p>
+<html lang="th" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>🎮 หน้าแนะนำตัว | เจ๊ก (JEK) - ร้านขายไอดีเกมส์ & คอมพิวเตอร์ธุรกิจ ⚡</title>
+  
+  <!-- Google Fonts: Kanit & Chakra Petch -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700;800&family=Kanit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            thai: ['Kanit', 'sans-serif'],
+            gaming: ['"Chakra Petch"', 'sans-serif'],
+          },
+          colors: {
+            game: {
+              black: '#070a13',
+              dark: '#0c1120',
+              card: '#12182b',
+              surface: '#182138',
+              cyan: '#00f2fe',
+              blue: '#38bdf8',
+              purple: '#9333ea',
+              neonPurple: '#a855f7',
+              lightPurple: '#c084fc',
+              white: '#ffffff',
+              silver: '#e2e8f0',
+            }
+          },
+          boxShadow: {
+            'glow-cyan': '0 0 25px -4px rgba(0, 242, 254, 0.5)',
+            'glow-purple': '0 0 25px -4px rgba(168, 85, 247, 0.5)',
+            'glow-white': '0 0 20px -3px rgba(255, 255, 255, 0.4)',
+            'glow-combo': '0 0 30px -5px rgba(0, 242, 254, 0.3), 0 0 30px -5px rgba(168, 85, 247, 0.3)',
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      font-family: 'Kanit', sans-serif;
+      background-color: #070a13;
+      color: #ffffff;
+      overflow-x: hidden;
+    }
+
+    .font-gaming {
+      font-family: 'Chakra Petch', 'Kanit', sans-serif;
+    }
+
+    /* Cyberpunk Grid Background in Cyan & Purple */
+    .cyber-grid {
+      background-size: 34px 34px;
+      background-image: 
+        linear-gradient(to right, rgba(0, 242, 254, 0.06) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(168, 85, 247, 0.06) 1px, transparent 1px);
+    }
+
+    /* Glassmorphism Cards */
+    .glass-card {
+      background: rgba(18, 24, 43, 0.8);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card:hover {
+      border-color: rgba(0, 242, 254, 0.6);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -10px rgba(0, 242, 254, 0.25);
+    }
+
+    .glass-card-purple {
+      background: rgba(22, 18, 43, 0.8);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(168, 85, 247, 0.25);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .glass-card-purple:hover {
+      border-color: rgba(168, 85, 247, 0.7);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px -10px rgba(168, 85, 247, 0.3);
+    }
+
+    /* Glowing Text */
+    .text-glow-cyan {
+      text-shadow: 0 0 14px rgba(0, 242, 254, 0.75);
+    }
+    .text-glow-purple {
+      text-shadow: 0 0 14px rgba(168, 85, 247, 0.75);
+    }
+    .text-glow-white {
+      text-shadow: 0 0 12px rgba(255, 255, 255, 0.6);
+    }
+
+    /* Avatar Glow Animation */
+    @keyframes avatarPulse {
+      0%, 100% {
+        box-shadow: 0 0 25px rgba(0, 242, 254, 0.5), inset 0 0 15px rgba(168, 85, 247, 0.4);
+        border-color: #00f2fe;
+      }
+      50% {
+        box-shadow: 0 0 35px rgba(168, 85, 247, 0.7), inset 0 0 20px rgba(0, 242, 254, 0.6);
+        border-color: #a855f7;
+      }
+    }
+    .avatar-glow {
+      animation: avatarPulse 4s infinite ease-in-out;
+    }
+
+    /* Custom Floating */
+    @keyframes floatSlow {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-8px); }
+    }
+    .animate-float {
+      animation: floatSlow 3.5s ease-in-out infinite;
+    }
+
+    /* Animated XP Bar */
+    .xp-bar-glow {
+      background: linear-gradient(90deg, #00f2fe 0%, #a855f7 50%, #ffffff 100%);
+      background-size: 200% 100%;
+      animation: xpGradient 3s linear infinite;
+    }
+    @keyframes xpGradient {
+      0% { background-position: 100% 0; }
+      100% { background-position: -100% 0; }
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 7px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #070a13;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #182138;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00f2fe;
+    }
+  </style>
+</head>
+<body class="cyber-grid min-h-screen flex flex-col justify-between selection:bg-cyan-400 selection:text-black">
+
+  <!-- ================= TOP GAMING TICKER ================= -->
+  <div class="bg-gradient-to-r from-game-black via-purple-950/60 to-cyan-950/60 border-b border-cyan-400/20 py-1.5 px-4 text-xs">
+    <div class="max-w-6xl mx-auto flex items-center justify-between">
+      <div class="flex items-center gap-2 text-cyan-300 font-medium truncate">
+        <span class="animate-bounce">🎮</span>
+        <span>หน้าแนะนำตัวนักศึกษา • วิชา Mobile Application Dev (Week 02) 📱✨</span>
+      </div>
+      <div class="flex items-center gap-3 text-slate-300 text-xs">
+        <span class="flex items-center gap-1.5">
+          <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="text-emerald-300 font-semibold font-gaming hidden sm:inline">ONLINE 24/7 🟢</span>
+        </span>
+        <span class="text-slate-600">|</span>
+        <a href="#store-showcase" class="text-purple-300 hover:text-white transition-colors flex items-center gap-1 font-bold">
+          <span>🛒 ร้านขายไอดีเกมส์</span>
+          <i class="fa-solid fa-arrow-down text-[10px]"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NAVBAR ================= -->
+  <header class="sticky top-0 z-40 bg-game-black/90 backdrop-blur-md border-b border-white/10 shadow-lg">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-20 flex items-center justify-between">
+      
+      <!-- Brand Logo -->
+      <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-cyan-400 via-purple-600 to-white p-0.5 shadow-glow-cyan transition-transform group-hover:scale-105">
+          <div class="w-full h-full bg-game-black rounded-[14px] flex items-center justify-center">
+            <span class="text-2xl animate-pulse">👾</span>
+          </div>
+        </div>
+        <div>
+          <div class="font-gaming font-black text-2xl tracking-wider text-white flex items-center gap-1.5">
+            <span class="text-white text-glow-white">JEK</span>
+            <span class="text-cyan-400 text-glow-cyan">.STORE</span>
+            <span class="text-xs bg-purple-500/20 text-purple-300 border border-purple-500/40 px-2 py-0.5 rounded-md font-bold">
+              LV.99 👑
+            </span>
+          </div>
+          <p class="text-[11px] text-slate-300 font-medium tracking-wide flex items-center gap-1">
+            <span>💻 คอมพิวเตอร์ธุรกิจ</span>
+            <span class="text-cyan-400">•</span>
+            <span>🎮 ร้านขายไอดีเกมส์</span>
+          </p>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1.5 bg-game-dark/80 border border-white/10 rounded-2xl p-1.5 text-xs">
+        <a href="#profile" class="px-3.5 py-2 rounded-xl bg-cyan-500/20 text-cyan-300 border border-cyan-400/40 font-bold flex items-center gap-1.5 shadow-sm">
+          <span>👤 แนะนำตัว</span>
+        </a>
+        <a href="#education" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 font-medium">
+          <span>🎓 การศึกษา & สาขา</span>
+        </a>
+        <a href="#store-showcase" class="px-3.5 py-2 rounded-xl text-purple-300 hover:text-white hover:bg-purple-500/10 transition-all flex items-center gap-1.5 font-bold">
+          <span>🛒 ร้านไอดีเกมส์</span>
+        </a>
+        <a href="#skills" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 font-medium">
+          <span>⚡ สกิล & ความถนัด</span>
+        </a>
+        <a href="#contact" class="px-3.5 py-2 rounded-xl text-slate-300 hover:text-white hover:bg-white/5 transition-all flex items-center gap-1.5 font-medium">
+          <span>💬 ติดต่อฉัน</span>
+        </a>
+      </nav>
+
+      <!-- Action Button -->
+      <div class="flex items-center gap-2">
+        <button 
+          onclick="triggerLevelUpEffect()"
+          class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:to-purple-500 text-black font-gaming font-bold text-xs tracking-wider shadow-glow-combo transition-all flex items-center gap-1.5 transform hover:-translate-y-0.5 active:scale-95"
+          title="กดรับพลังเลเวลอัป"
+        >
+          <span>⚡</span>
+          <span>รับพลัง LV.UP!</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- ================= MAIN CONTENT CONTAINER ================= -->
+  <main class="max-w-6xl mx-auto px-4 sm:px-6 py-10 w-full space-y-16">
+
+    <!-- ================= HERO PROFILE SECTION ================= -->
+    <section id="profile" class="relative rounded-3xl overflow-hidden glass-card border border-cyan-400/40 p-6 sm:p-10 shadow-2xl">
+      <!-- Glow Gradients -->
+      <div class="absolute -top-24 -left-24 w-80 h-80 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-24 -right-24 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl pointer-events-none"></div>
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Left: Gamer Avatar & Level Status -->
+        <div class="lg:col-span-5 flex flex-col items-center text-center">
+          <div class="relative group">
+            
+            <!-- Avatar Frame with Cyan-Purple-White Gradient Border -->
+            <div class="w-48 h-48 sm:w-56 sm:h-56 rounded-3xl p-1 bg-gradient-to-br from-cyan-400 via-purple-500 to-white avatar-glow">
+              <div class="w-full h-full rounded-[22px] overflow-hidden bg-game-black relative">
+                <img 
+                  src="https://images.unsplash.com/photo-1566492031773-4f4e44671857?w=600&auto=format&fit=crop&q=80" 
+                  alt="ภาพโปรไฟล์ เจ๊ก" 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                >
+                <div class="absolute inset-0 bg-gradient-to-t from-game-black via-transparent to-transparent opacity-50"></div>
+              </div>
+            </div>
+
+            <!-- Rank Badge -->
+            <div class="absolute -bottom-3 left-1/2 transform -translate-x-1/2 bg-game-dark border-2 border-cyan-400 px-4 py-1 rounded-full text-xs font-gaming font-bold text-white shadow-glow-cyan flex items-center gap-1.5 whitespace-nowrap">
+              <span>👑</span>
+              <span>LEVEL 99</span>
+              <span class="text-cyan-400">| FOUNDER</span>
+            </div>
+          </div>
+
+          <!-- Character HP / MP / EXP Status Bars -->
+          <div class="w-full max-w-xs mt-7 space-y-2 text-[11px] font-gaming">
+            <!-- HP Bar -->
+            <div>
+              <div class="flex justify-between text-slate-300 mb-0.5">
+                <span class="flex items-center gap-1"><span>❤️</span> HP (พลังกาย)</span>
+                <span class="text-cyan-400 font-bold">100% / 100% ⚡</span>
+              </div>
+              <div class="w-full bg-slate-900 border border-white/10 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full rounded-full" style="width: 100%;"></div>
+              </div>
+            </div>
+
+            <!-- MP Bar -->
+            <div>
+              <div class="flex justify-between text-slate-300 mb-0.5">
+                <span class="flex items-center gap-1"><span>🔮</span> MP (ความคิดสร้างสรรค์)</span>
+                <span class="text-purple-400 font-bold">999 / 999 💜</span>
+              </div>
+              <div class="w-full bg-slate-900 border border-white/10 rounded-full h-2 overflow-hidden">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full" style="width: 95%;"></div>
+              </div>
+            </div>
+
+            <!-- EXP Bar -->
+            <div>
+              <div class="flex justify-between text-slate-300 mb-0.5">
+                <span class="flex items-center gap-1"><span>✨</span> EXP PROGRESS (ประสบการณ์)</span>
+                <span class="text-white font-bold">98,500 / 100,000 🎯</span>
+              </div>
+              <div class="w-full bg-slate-900 border border-white/10 rounded-full h-2 overflow-hidden">
+                <div class="h-full rounded-full xp-bar-glow" style="width: 94%;"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Quick Gamertag Pill -->
+          <div class="mt-4 flex items-center gap-2 bg-game-dark/90 border border-purple-500/30 rounded-xl px-4 py-1.5 text-xs">
+            <span class="text-purple-300">🎮 GAMER ID:</span>
+            <span id="gamerTag" class="font-gaming font-bold text-cyan-300 tracking-wider">JEK#STORE2026</span>
+            <button onclick="copyGamerTag()" class="text-slate-400 hover:text-white ml-1" title="คัดลอกไอดี">
+              <i class="fa-solid fa-copy"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Right: Bio Info & Introduction -->
+        <div class="lg:col-span-7 space-y-5 text-left">
+          
+          <!-- Badges -->
+          <div class="flex flex-wrap items-center gap-2">
+            <span class="px-3.5 py-1 rounded-full bg-cyan-400/15 border border-cyan-400/40 text-cyan-300 text-xs font-bold font-gaming flex items-center gap-1.5 shadow-sm">
+              <span>👤</span> ชื่อเล่น: เจ๊ก (JEK)
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-purple-500/15 border border-purple-500/40 text-purple-300 text-xs font-bold font-gaming flex items-center gap-1.5 shadow-sm">
+              <span>💻</span> สาขาคอมพิวเตอร์ธุรกิจ
+            </span>
+            <span class="px-3.5 py-1 rounded-full bg-white/15 border border-white/40 text-white text-xs font-bold font-gaming flex items-center gap-1.5 shadow-sm">
+              <span>🛒</span> เจ้าของร้านขายไอดีเกมส์
+            </span>
+          </div>
+
+          <!-- Main Title -->
+          <div>
+            <h1 class="text-3xl sm:text-5xl font-black font-gaming tracking-tight text-white leading-tight">
+              ยินดีต้อนรับสู่ <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-300 to-white text-glow-cyan">
+                หน้าแนะนำตัว: "เจ๊ก" 🎮⚡
+              </span>
+            </h1>
+            <p class="text-slate-300 text-sm sm:text-base mt-3 font-light leading-relaxed">
+              สวัสดีครับทุกคน! ผมชื่อเล่นว่า <strong class="text-cyan-300 font-bold">"เจ๊ก"</strong> นักศึกษาสาขา 
+              <strong class="text-purple-300 font-bold">คอมพิวเตอร์ธุรกิจ</strong> ผู้มีความชื่นชอบในเทคโนโลยี การสร้างสรรค์เว็บไซต์ 
+              และมีโครงงานหลักคือการพัฒนาและบริหาร <strong class="text-white font-bold underline decoration-cyan-400">ร้านขายไอดีเกมส์ออนไลน์</strong> 
+              ที่ให้บริการด้วยความรวดเร็ว ปลอดภัย และราคาเป็นกันเองครับ! 💜✨
+            </p>
+          </div>
+
+          <!-- Quick Highlight Specs Card -->
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-2">
+            
+            <div class="bg-game-dark/80 border border-cyan-400/20 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                <span>🏷️</span> ชื่อเล่น
+              </div>
+              <div class="text-base font-bold text-white mt-0.5">เจ๊ก (Jek) ⚡</div>
+              <div class="text-[10px] text-cyan-400 font-gaming">IGN: JEK_MASTER</div>
+            </div>
+
+            <div class="bg-game-dark/80 border border-purple-500/20 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                <span>🎓</span> สาขาวิชา
+              </div>
+              <div class="text-base font-bold text-purple-300 mt-0.5 truncate">คอมพิวเตอร์ธุรกิจ</div>
+              <div class="text-[10px] text-slate-400 font-gaming">Business Computer 💻</div>
+            </div>
+
+            <div class="col-span-2 sm:col-span-1 bg-game-dark/80 border border-white/20 rounded-2xl p-3.5">
+              <div class="text-[11px] text-slate-400 flex items-center gap-1">
+                <span>🏪</span> ร้านโครงงาน
+              </div>
+              <div class="text-base font-bold text-white mt-0.5 truncate">ร้านขายไอดีเกมส์</div>
+              <div class="text-[10px] text-emerald-400 font-gaming">STATUS: ACTIVE 24H 🟢</div>
+            </div>
+
+          </div>
+
+          <!-- Buttons -->
+          <div class="flex flex-wrap items-center gap-3 pt-2">
+            <a 
+              href="#store-showcase" 
+              class="px-6 py-3.5 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:to-purple-500 text-black font-gaming font-bold text-xs tracking-wider shadow-glow-cyan transition-all flex items-center gap-2 transform hover:-translate-y-0.5"
+            >
+              <span>🛒 แวะชมไอดีเกมในร้าน</span>
+              <i class="fa-solid fa-arrow-down text-xs"></i>
+            </a>
+            
+            <a 
+              href="#contact" 
+              class="px-5 py-3.5 rounded-xl bg-game-dark hover:bg-slate-800 border border-purple-500/40 text-purple-300 hover:text-white text-xs font-gaming font-bold transition-all flex items-center gap-2"
+            >
+              <span>💬 ส่งข้อความทักทายเจ๊ก</span>
+            </a>
+
+            <button 
+              onclick="triggerLevelUpEffect()"
+              class="px-4 py-3.5 rounded-xl bg-white/10 hover:bg-white/20 border border-white/30 text-white text-xs font-bold transition-all flex items-center gap-1.5"
+              title="สุ่มเสียงและเอฟเฟกต์"
+            >
+              <span>🔊 เสียง 8-Bit</span>
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= EDUCATION & PERSONAL DETAILS ================= -->
+    <section id="education" class="space-y-6">
+      <div class="border-b border-white/10 pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-gaming font-bold text-white flex items-center gap-2">
+            <span>🎓</span>
+            <span>ข้อมูลส่วนตัว & ข้อมูลการศึกษา (PROFILE & EDUCATION)</span>
+          </h2>
+          <p class="text-xs text-slate-400">ประวัติการเรียน สาขาวิชา และความสนใจในสายคอมพิวเตอร์ธุรกิจ</p>
+        </div>
+        <span class="text-xs font-gaming text-cyan-400 hidden sm:inline">SEMESTER: 2026 / WEEK 02 📱</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        
+        <!-- Card 1: สาขาวิชาคอมพิวเตอร์ธุรกิจ -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 border-l-4 border-l-cyan-400">
+          <div class="w-12 h-12 rounded-xl bg-cyan-400/10 text-cyan-300 flex items-center justify-center text-2xl shadow-glow-cyan">
+            <span>💻</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-gaming">สาขาคอมพิวเตอร์ธุรกิจ</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            มุ่งเน้นการผสมผสานระหว่าง <strong class="text-cyan-300">เทคโนโลยีสารสนเทศ (IT)</strong> และ <strong class="text-purple-300">การบริหารธุรกิจ (Business Management)</strong> 
+            นำความรู้เรื่องการสร้างเว็บ ฐานข้อมูล การตลาดดิจิทัล และระบบพาณิชย์อิเล็กทรอนิกส์ (E-Commerce) มาประยุกต์ใช้กับร้านขายของจริง
+          </p>
+          <div class="pt-2 border-t border-white/10 text-[11px] text-cyan-400 flex items-center gap-1.5 font-medium">
+            <span>✨</span> ความถนัด: Web & Mobile, E-Commerce, Graphic
+          </div>
+        </div>
+
+        <!-- Card 2: โครงงานร้านขายไอดีเกมส์ -->
+        <div class="glass-card-purple rounded-2xl p-6 space-y-3 border-l-4 border-l-purple-500">
+          <div class="w-12 h-12 rounded-xl bg-purple-500/10 text-purple-300 flex items-center justify-center text-2xl shadow-glow-purple">
+            <span>🎮</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-gaming">โครงงาน: ร้านขายไอดีเกมส์</h3>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            การสร้างแพลตฟอร์มจำหน่ายและแลกเปลี่ยน <strong class="text-purple-300">ไอดีเกมออนไลน์แท้ (Game Account)</strong> 
+            ระบบตรวจสอบความปลอดภัย มีไอดีรองรับเกมยอดนิยม เช่น ROV, Valorant, Genshin Impact, Free Fire และ Steam พร้อมระบบส่งมอบรวดเร็ว
+          </p>
+          <div class="pt-2 border-t border-white/10 text-[11px] text-purple-300 flex items-center gap-1.5 font-medium">
+            <span>🛡️</span> จุดเด่น: ส่งไว ปลอดภัย ไม่โดนแบน การันตี 100%
+          </div>
+        </div>
+
+        <!-- Card 3: ข้อมูลประจำตัวนักศึกษา -->
+        <div class="glass-card rounded-2xl p-6 space-y-3 border-l-4 border-l-white">
+          <div class="w-12 h-12 rounded-xl bg-white/10 text-white flex items-center justify-center text-2xl shadow-glow-white">
+            <span>👤</span>
+          </div>
+          <h3 class="text-lg font-bold text-white font-gaming">ข้อมูลนักศึกษา (Student Info)</h3>
+          <ul class="text-xs space-y-2 text-slate-300">
+            <li class="flex items-center justify-between border-b border-white/5 pb-1">
+              <span class="text-slate-400">ชื่อเล่น:</span>
+              <strong class="text-cyan-300 font-bold">เจ๊ก (Jek) ⚡</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1">
+              <span class="text-slate-400">วิชาที่เรียน:</span>
+              <strong class="text-white">Mobile Application (สัปดาห์ที่ 2) 📱</strong>
+            </li>
+            <li class="flex items-center justify-between border-b border-white/5 pb-1">
+              <span class="text-slate-400">สถานะ:</span>
+              <span class="text-emerald-300 font-bold">พร้อมศึกษา & สร้างสรรค์ผลงาน ✨</span>
+            </li>
+            <li class="flex items-center justify-between pt-1">
+              <span class="text-slate-400">เป้าหมาย:</span>
+              <span class="text-purple-300">พัฒนาเป็นเว็บแอพเต็มรูปแบบ 🚀</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SHOP SHOWCASE (ร้านขายไอดีเกมส์) ================= -->
+    <section id="store-showcase" class="space-y-6">
+      <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-white/10 pb-4">
+        <div>
+          <div class="inline-flex items-center gap-1.5 text-xs text-cyan-400 font-bold font-gaming uppercase tracking-wider mb-1">
+            <span>🔥</span> STORE SHOWCASE • ร้านโครงงานของเจ๊ก
+          </div>
+          <h2 class="text-2xl sm:text-3xl font-gaming font-black text-white flex items-center gap-2">
+            <span>🛒</span>
+            <span>ไอดีเกมแนะนำในร้านของ "เจ๊ก"</span>
+          </h2>
+          <p class="text-xs text-slate-400">ตัวอย่างไอดีเกมยอดนิยมที่เปิดจำหน่ายในโครงงานร้านขายไอดีเกมส์</p>
+        </div>
+
+        <a 
+          href="shop.html" 
+          class="px-4 py-2 bg-gradient-to-r from-cyan-400 to-purple-600 text-black font-gaming font-bold text-xs rounded-xl shadow-glow-cyan hover:opacity-90 transition-all flex items-center gap-1.5 self-start sm:self-auto"
+        >
+          <span>🚀 ดูหน้าร้านทั้งหมด</span>
+          <i class="fa-solid fa-arrow-right text-[10px]"></i>
+        </a>
+      </div>
+
+      <!-- Game Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        
+        <!-- Item 1: ROV -->
+        <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=500&auto=format&fit=crop&q=80" alt="ROV ID" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-game-black via-transparent to-transparent"></div>
+              <span class="absolute top-2.5 left-2.5 bg-red-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                🔥 ขายดีอันดับ 1
+              </span>
+              <span class="absolute top-2.5 right-2.5 bg-purple-500/80 border border-purple-400/50 text-white text-[10px] font-gaming font-bold px-2 py-0.5 rounded">
+                MYTHIC 👑
+              </span>
+              <span class="absolute bottom-2.5 left-2.5 bg-game-black/80 text-cyan-300 text-[10px] font-bold px-2 py-0.5 rounded border border-cyan-400/30">
+                ARENA OF VALOR (ROV)
+              </span>
+            </div>
+
+            <div class="p-4 space-y-2">
+              <h3 class="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">
+                ไอดี ROV Supreme 180+ สกิน ⚔️
+              </h3>
+              <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                สกิน Violet Dimension Breaker, Nakroth Dimension, ฮีโร่ครบทุกตัว รูนตันทุกสาย สะอาด 100%
+              </p>
+              <div class="text-[11px] text-emerald-400 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-bolt text-[10px]"></i> ส่งมอบไอดีและเปลี่ยนพาสทันที
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 pt-2 border-t border-white/10 flex items-center justify-between mt-auto">
+            <div>
+              <div class="text-[10px] text-slate-500 line-through">2,200 ฿</div>
+              <div class="text-lg font-gaming font-bold text-cyan-300">
+                1,590 <span class="text-xs text-white">บาท</span>
+              </div>
+            </div>
+            <button 
+              onclick="orderGameItem('ไอดี ROV Supreme 180+ สกิน (1,590 ฿)')"
+              class="px-3.5 py-1.5 bg-cyan-400 hover:bg-cyan-300 text-black text-xs font-bold font-gaming rounded-xl shadow-glow-cyan transition-all active:scale-95"
+            >
+              สนใจซื้อ 🛒
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 2: Valorant -->
+        <div class="glass-card-purple rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=500&auto=format&fit=crop&q=80" alt="Valorant ID" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-game-black via-transparent to-transparent"></div>
+              <span class="absolute top-2.5 left-2.5 bg-cyan-500 text-black text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                ⚡ สกินเต็มเซ็ต
+              </span>
+              <span class="absolute top-2.5 right-2.5 bg-red-500/80 border border-red-400/50 text-white text-[10px] font-gaming font-bold px-2 py-0.5 rounded">
+                IMMORTAL 🏆
+              </span>
+              <span class="absolute bottom-2.5 left-2.5 bg-game-black/80 text-purple-300 text-[10px] font-bold px-2 py-0.5 rounded border border-purple-400/30">
+                VALORANT (PC)
+              </span>
+            </div>
+
+            <div class="p-4 space-y-2">
+              <h3 class="font-bold text-sm text-white group-hover:text-purple-300 transition-colors">
+                ไอดี Valorant Immortal มีดคุโรนามิ 🔫
+              </h3>
+              <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                เซิร์ฟไทย/APAC มี Vandal Kuronami, Prime, Reaver, มีด Ignite Fan พร้อมฉายาระดับท็อป
+              </p>
+              <div class="text-[11px] text-cyan-300 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-shield-halved text-[10px]"></i> ประกันไอดีตลอดชีพ ไม่ดึงกลับ
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 pt-2 border-t border-white/10 flex items-center justify-between mt-auto">
+            <div>
+              <div class="text-[10px] text-slate-500 line-through">3,500 ฿</div>
+              <div class="text-lg font-gaming font-bold text-purple-300">
+                2,490 <span class="text-xs text-white">บาท</span>
+              </div>
+            </div>
+            <button 
+              onclick="orderGameItem('ไอดี Valorant Immortal (2,490 ฿)')"
+              class="px-3.5 py-1.5 bg-purple-500 hover:bg-purple-400 text-white text-xs font-bold font-gaming rounded-xl shadow-glow-purple transition-all active:scale-95"
+            >
+              สนใจซื้อ 🛒
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 3: Genshin Impact -->
+        <div class="glass-card rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1579373903781-fd5c0c30c4cd?w=500&auto=format&fit=crop&q=80" alt="Genshin ID" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-game-black via-transparent to-transparent"></div>
+              <span class="absolute top-2.5 left-2.5 bg-amber-500 text-black text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                ✨ AR60 แท้
+              </span>
+              <span class="absolute top-2.5 right-2.5 bg-blue-500/80 border border-blue-400/50 text-white text-[10px] font-gaming font-bold px-2 py-0.5 rounded">
+                LEGENDARY 💎
+              </span>
+              <span class="absolute bottom-2.5 left-2.5 bg-game-black/80 text-white text-[10px] font-bold px-2 py-0.5 rounded border border-white/30">
+                GENSHIN IMPACT
+              </span>
+            </div>
+
+            <div class="p-4 space-y-2">
+              <h3 class="font-bold text-sm text-white group-hover:text-cyan-300 transition-colors">
+                ไอดีเทพ Genshin AR60 (24 ตัว 5 ดาว) 🌌
+              </h3>
+              <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                Furina C2, Raiden Shogun C3, Nahida, Hu Tao พร้อมอาวุธประจำตัว แผนที่ฟาร์มครบ 100%
+              </p>
+              <div class="text-[11px] text-emerald-400 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-lock text-[10px]"></i> เมลสะอาด ย้ายเมลได้ทันที
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 pt-2 border-t border-white/10 flex items-center justify-between mt-auto">
+            <div>
+              <div class="text-[10px] text-slate-500 line-through">4,200 ฿</div>
+              <div class="text-lg font-gaming font-bold text-white">
+                3,190 <span class="text-xs text-cyan-300">บาท</span>
+              </div>
+            </div>
+            <button 
+              onclick="orderGameItem('ไอดี Genshin Impact AR60 (3,190 ฿)')"
+              class="px-3.5 py-1.5 bg-white hover:bg-slate-200 text-black text-xs font-bold font-gaming rounded-xl shadow-glow-white transition-all active:scale-95"
+            >
+              สนใจซื้อ 🛒
+            </button>
+          </div>
+        </div>
+
+        <!-- Item 4: Steam Wallet -->
+        <div class="glass-card-purple rounded-2xl overflow-hidden flex flex-col justify-between group">
+          <div>
+            <div class="relative h-44 overflow-hidden bg-slate-900">
+              <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?w=500&auto=format&fit=crop&q=80" alt="Steam Code" class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+              <div class="absolute inset-0 bg-gradient-to-t from-game-black via-transparent to-transparent"></div>
+              <span class="absolute top-2.5 left-2.5 bg-purple-500 text-white text-[10px] font-bold px-2 py-0.5 rounded shadow">
+                💳 โค้ดแท้ 100%
+              </span>
+              <span class="absolute top-2.5 right-2.5 bg-emerald-500/80 border border-emerald-400/50 text-white text-[10px] font-gaming font-bold px-2 py-0.5 rounded">
+                INSTANT ⚡
+              </span>
+              <span class="absolute bottom-2.5 left-2.5 bg-game-black/80 text-cyan-300 text-[10px] font-bold px-2 py-0.5 rounded border border-cyan-400/30">
+                STEAM WALLET
+              </span>
+            </div>
+
+            <div class="p-4 space-y-2">
+              <h3 class="font-bold text-sm text-white group-hover:text-purple-300 transition-colors">
+                บัตรเติม Steam Wallet 1,000 THB 🎁
+              </h3>
+              <p class="text-[11px] text-slate-400 line-clamp-2 leading-relaxed">
+                รหัสดิจิทัลเติมเข้า Steam กระเป๋าเงินไทย ซื้อเกมได้ทุกเกม ไม่มีวันหมดอายุ
+              </p>
+              <div class="text-[11px] text-purple-300 flex items-center gap-1 font-medium">
+                <i class="fa-solid fa-qrcode text-[10px]"></i> ได้รับรหัสทันทีใน 5 วินาที
+              </div>
+            </div>
+          </div>
+
+          <div class="p-4 pt-2 border-t border-white/10 flex items-center justify-between mt-auto">
+            <div>
+              <div class="text-[10px] text-slate-500 line-through">1,000 ฿</div>
+              <div class="text-lg font-gaming font-bold text-cyan-300">
+                969 <span class="text-xs text-white">บาท</span>
+              </div>
+            </div>
+            <button 
+              onclick="orderGameItem('บัตร Steam Wallet 1,000 THB (969 ฿)')"
+              class="px-3.5 py-1.5 bg-cyan-400 hover:bg-cyan-300 text-black text-xs font-bold font-gaming rounded-xl shadow-glow-cyan transition-all active:scale-95"
+            >
+              สนใจซื้อ 🛒
+            </button>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= SKILLS & ATTRIBUTES ================= -->
+    <section id="skills" class="space-y-6">
+      <div class="border-b border-white/10 pb-3 flex items-center justify-between">
+        <div>
+          <h2 class="text-2xl font-gaming font-bold text-white flex items-center gap-2">
+            <span>⚡</span>
+            <span>SKILLS & ATTRIBUTES (ทักษะและความถนัด)</span>
+          </h2>
+          <p class="text-xs text-slate-400">ทักษะที่นำมาใช้พัฒนาทั้งการเรียนและการบริหารร้านค้าออนไลน์</p>
+        </div>
+        <span class="text-xs text-purple-300 font-gaming hidden sm:inline">CLASS: BUSINESS DEV 💼🎮</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        
+        <!-- Column 1: Tech & Business Skills -->
+        <div class="glass-card rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-gaming font-bold text-cyan-300 flex items-center gap-2">
+            <span>💻</span> ทักษะด้านคอมพิวเตอร์ & ธุรกิจดิจิทัล
+          </h3>
+
+          <div class="space-y-3">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-200">🌐 Web Development (HTML5, Tailwind CSS, JS)</span>
+                <span class="text-cyan-400 font-bold font-gaming">92% (ADVANCED) ⚡</span>
+              </div>
+              <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-white/10">
+                <div class="bg-gradient-to-r from-cyan-400 to-blue-500 h-full rounded-full" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-200">🛒 E-Commerce & ระบบจัดการคำสั่งซื้อร้านค้า</span>
+                <span class="text-purple-400 font-bold font-gaming">95% (EXPERT) 💜</span>
+              </div>
+              <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-white/10">
+                <div class="bg-gradient-to-r from-purple-500 to-pink-500 h-full rounded-full" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-200">📱 Mobile Responsive & UI Design (Figma)</span>
+                <span class="text-white font-bold font-gaming">88% (SKILLED) ✨</span>
+              </div>
+              <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-white/10">
+                <div class="bg-gradient-to-r from-white via-cyan-400 to-purple-500 h-full rounded-full" style="width: 88%"></div>
+              </div>
+            </div>
+
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-200">🛡️ การตรวจสอบความปลอดภัย & ยืนยันไอดีเกม</span>
+                <span class="text-cyan-300 font-bold font-gaming">98% (MASTER) 👑</span>
+              </div>
+              <div class="w-full bg-slate-900 rounded-full h-2 overflow-hidden border border-white/10">
+                <div class="bg-gradient-to-r from-cyan-400 via-purple-400 to-white h-full rounded-full" style="width: 98%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Column 2: Gamer Attributes & Soft Skills -->
+        <div class="glass-card-purple rounded-2xl p-6 space-y-4">
+          <h3 class="text-base font-gaming font-bold text-purple-300 flex items-center gap-2">
+            <span>🛡️</span> ค่าสถานะผู้เล่น & สไตล์การทำงาน (Player Stats)
+          </h3>
+
+          <div class="grid grid-cols-2 gap-3">
+            <div class="bg-game-dark/80 p-3.5 rounded-xl border border-white/5 space-y-1">
+              <div class="text-xs text-slate-400 flex items-center justify-between">
+                <span>⚡ SPEED</span>
+                <span class="text-cyan-400 font-bold font-gaming">99/100</span>
+              </div>
+              <p class="text-[11px] text-slate-300">จัดส่งไอดีและตอบแชทไวใน 1-5 นาที</p>
+            </div>
+
+            <div class="bg-game-dark/80 p-3.5 rounded-xl border border-white/5 space-y-1">
+              <div class="text-xs text-slate-400 flex items-center justify-between">
+                <span>🤝 SERVICE</span>
+                <span class="text-purple-400 font-bold font-gaming">98/100</span>
+              </div>
+              <p class="text-[11px] text-slate-300">บริการเป็นกันเอง คุยง่าย ดูแลจริงใจ</p>
+            </div>
+
+            <div class="bg-game-dark/80 p-3.5 rounded-xl border border-white/5 space-y-1">
+              <div class="text-xs text-slate-400 flex items-center justify-between">
+                <span>🎯 AIM</span>
+                <span class="text-white font-bold font-gaming">95/100</span>
+              </div>
+              <p class="text-[11px] text-slate-300">โฟกัสเป้าหมาย ทั้งการเรียนและการเล่นเกม</p>
+            </div>
+
+            <div class="bg-game-dark/80 p-3.5 rounded-xl border border-white/5 space-y-1">
+              <div class="text-xs text-slate-400 flex items-center justify-between">
+                <span>🔥 PASSION</span>
+                <span class="text-pink-400 font-bold font-gaming">100/100</span>
+              </div>
+              <p class="text-[11px] text-slate-300">สนุกกับการเรียนรู้สิ่งใหม่ๆ ตลอดเวลา</p>
+            </div>
+          </div>
+
+          <div class="p-3 bg-purple-950/40 border border-purple-500/30 rounded-xl text-xs text-purple-200 flex items-center gap-2">
+            <span class="text-xl">🏆</span>
+            <span>การันตีความพึงพอใจ: ส่งมอบไอดีเกมแล้วกว่า 1,000+ บัญชี ปลอดภัย 100%!</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section id="contact" class="glass-card rounded-3xl p-6 sm:p-10 border border-cyan-400/40 relative overflow-hidden shadow-2xl">
+      <div class="absolute -top-16 -right-16 w-64 h-64 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none"></div>
+      <div class="absolute -bottom-16 -left-16 w-64 h-64 bg-purple-600/15 rounded-full blur-3xl pointer-events-none"></div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-10">
+        
+        <!-- Left: Contact Details -->
+        <div class="lg:col-span-5 space-y-5">
+          <div>
+            <span class="text-xs font-gaming text-cyan-400 font-bold tracking-wider uppercase flex items-center gap-1.5">
+              <span>💬</span> GET IN TOUCH WITH JEK
+            </span>
+            <h2 class="text-2xl sm:text-3xl font-gaming font-black text-white mt-1">
+              ติดต่อ "เจ๊ก" <br>
+              <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-300 to-white">
+                คุยเรื่องเรียน หรือไอดีเกมได้เลย! ✨
+              </span>
+            </h2>
+            <p class="text-xs text-slate-300 mt-2 leading-relaxed">
+              ยินดีให้คำปรึกษาและพูดคุยครับ ไม่ว่าจะเรื่องการเรียนวิชาคอมพิวเตอร์ธุรกิจ ชวนคุยเรื่องไอที 
+              หรือสนใจสั่งซื้อ/สอบถามไอดีเกม ทักทายมาได้ทุกช่องทางเลยครับ! 💜
+            </p>
+          </div>
+
+          <div class="space-y-2.5 text-xs">
+            <a href="https://line.me" target="_blank" class="flex items-center justify-between bg-game-dark/90 hover:bg-game-dark border border-white/10 hover:border-emerald-400 p-3 rounded-xl transition-all group">
+              <span class="flex items-center gap-2.5 text-slate-200">
+                <i class="fa-brands fa-line text-lg text-emerald-400"></i>
+                <span>Line ID: <strong class="text-white">@jek_gamestore</strong></span>
+              </span>
+              <span class="text-[10px] text-emerald-400 font-bold group-hover:translate-x-1 transition-transform">แอดไลน์ 💬</span>
+            </a>
+
+            <a href="https://facebook.com" target="_blank" class="flex items-center justify-between bg-game-dark/90 hover:bg-game-dark border border-white/10 hover:border-blue-400 p-3 rounded-xl transition-all group">
+              <span class="flex items-center gap-2.5 text-slate-200">
+                <i class="fa-brands fa-facebook text-lg text-blue-400"></i>
+                <span>Facebook: <strong class="text-white">เจ๊ก คอมพิวเตอร์ธุรกิจ</strong></span>
+              </span>
+              <span class="text-[10px] text-blue-400 font-bold group-hover:translate-x-1 transition-transform">ส่งข้อความ 📨</span>
+            </a>
+
+            <a href="https://discord.com" target="_blank" class="flex items-center justify-between bg-game-dark/90 hover:bg-game-dark border border-white/10 hover:border-indigo-400 p-3 rounded-xl transition-all group">
+              <span class="flex items-center gap-2.5 text-slate-200">
+                <i class="fa-brands fa-discord text-lg text-indigo-400"></i>
+                <span>Discord: <strong class="text-white">jek_store#2026</strong></span>
+              </span>
+              <span class="text-[10px] text-indigo-400 font-bold group-hover:translate-x-1 transition-transform">แอดดิส 🎮</span>
+            </a>
+
+            <div class="flex items-center justify-between bg-game-dark/90 border border-white/10 p-3 rounded-xl text-slate-300">
+              <span class="flex items-center gap-2.5">
+                <i class="fa-solid fa-phone text-cyan-400"></i>
+                <span>เบอร์โทรศัพท์: <strong class="text-white">09X-XXX-XXXX</strong></span>
+              </span>
+              <span class="text-[10px] text-cyan-400">ติดต่อได้ 24 ชม. ⚡</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Message Form -->
+        <div class="lg:col-span-7 bg-game-dark/90 border border-white/10 rounded-2xl p-6 space-y-4">
+          <div class="flex items-center justify-between border-b border-white/10 pb-3">
+            <h3 class="font-gaming font-bold text-base text-white flex items-center gap-2">
+              <span>✍️</span> ส่งข้อความทักทายเจ๊ก (Direct Message)
+            </h3>
+            <span class="text-[10px] text-cyan-400 font-gaming">⚡ FAST RESPONSE</span>
+          </div>
+
+          <form id="dmForm" onsubmit="handleDmSubmit(event)" class="space-y-3 text-xs">
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">ชื่อของคุณ: 👤</label>
+                <input 
+                  type="text" 
+                  id="senderName" 
+                  required 
+                  placeholder="เช่น อาจารย์, เพื่อนร่วมชั้น หรือ ลูกค้า" 
+                  class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                >
+              </div>
+              <div>
+                <label class="block text-slate-300 font-medium mb-1">เบอร์ หรือ ไลน์ไอดี: 📱</label>
+                <input 
+                  type="text" 
+                  id="senderContact" 
+                  required 
+                  placeholder="สำหรับติดต่อกลับ..." 
+                  class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors"
+                >
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-slate-300 font-medium mb-1">เรื่องที่ต้องการติดต่อ: 🎯</label>
+              <select id="dmTopic" class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-slate-200 focus:outline-none focus:border-purple-400">
+                <option value="ทักทาย">👋 ทักทายทำความรู้จัก / ตรวจการบ้าน Week 02</option>
+                <option value="สนใจซื้อไอดีเกม">🛒 สนใจสั่งซื้อไอดีเกมในร้าน</option>
+                <option value="ปรึกษาเรื่องคอมพิวเตอร์">💻 ปรึกษาเรื่องเรียนสาขาคอมพิวเตอร์ธุรกิจ</option>
+                <option value="ชวนเล่นเกม">🎮 ชวนเล่นเกม ROV / Valorant ด้วยกัน</option>
+              </select>
+            </div>
+
+            <div>
+              <label class="block text-slate-300 font-medium mb-1">ข้อความถึงเจ๊ก: 💬</label>
+              <textarea 
+                id="senderMsg" 
+                rows="3" 
+                required 
+                placeholder="พิมพ์ข้อความที่ต้องการบอกเจ๊กได้เลยครับ..." 
+                class="w-full bg-slate-900 border border-white/10 rounded-xl px-3.5 py-2.5 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors resize-none"
+              ></textarea>
+            </div>
+
+            <button 
+              type="submit" 
+              class="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 hover:from-cyan-300 hover:to-purple-500 text-black font-gaming font-bold text-xs tracking-wider shadow-glow-cyan transition-all flex items-center justify-center gap-2 active:scale-95"
+            >
+              <span>🚀 ส่งข้อความหาเจ๊กทันที!</span>
+            </button>
+          </form>
+
+          <div id="dmSuccessAlert" class="hidden p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 text-xs text-center space-y-1">
+            <div class="font-bold text-sm">🎉 ขอบคุณมากครับ! เจ๊กได้รับข้อความของคุณแล้ว</div>
+            <div class="text-[11px] text-slate-300">ยินดีที่ได้รู้จัก และจะรีบตอบกลับให้เร็วที่สุดครับ! 🎮💜</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ================= FOOTER ================= -->
+  <footer class="bg-game-black border-t border-white/10 mt-16 text-slate-400 text-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 font-gaming text-sm font-bold text-white">
+        <span class="text-cyan-400">👾 JEK.STORE</span>
+        <span class="text-slate-600">•</span>
+        <span class="text-slate-300 font-normal">หน้าแนะนำตัว: เจ๊ก | สาขาคอมพิวเตอร์ธุรกิจ 🎮</span>
+      </div>
+
+      <div class="flex items-center gap-4 text-xs">
+        <a href="#profile" class="text-cyan-300 hover:underline">แนะนำตัว</a>
+        <a href="#store-showcase" class="text-purple-300 hover:underline">ร้านขายไอดีเกมส์</a>
+        <a href="shop.html" class="text-white hover:underline font-bold">หน้าร้านค้าเต็มรูปแบบ 🛒</a>
+        <a href="#profile" class="hover:text-white transition-colors">ขึ้นด้านบน ⬆️</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ================= JAVASCRIPT LOGIC ================= -->
+  <script>
+    // Copy Gamertag
+    function copyGamerTag() {
+      const tag = document.getElementById('gamerTag').innerText;
+      navigator.clipboard.writeText(tag);
+      alert('🎮 คัดลอกไอดีเรียบร้อย: ' + tag);
+    }
+
+    // 8-bit Audio & Level Up Effect
+    function triggerLevelUpEffect() {
+      try {
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        const frequencies = [261.63, 329.63, 392.00, 523.25, 659.25];
+        frequencies.forEach((freq, idx) => {
+          const osc = audioCtx.createOscillator();
+          const gain = audioCtx.createGain();
+          osc.type = 'triangle';
+          osc.frequency.value = freq;
+          gain.gain.setValueAtTime(0.12, audioCtx.currentTime + idx * 0.08);
+          gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + (idx + 1) * 0.12);
+          osc.connect(gain);
+          gain.connect(audioCtx.destination);
+          osc.start(audioCtx.currentTime + idx * 0.08);
+          osc.stop(audioCtx.currentTime + (idx + 1) * 0.12);
+        });
+      } catch (err) {
+        console.log('Audio Context not available');
+      }
+
+      alert('⚡ LEVEL UP! ยินดีต้อนรับสู่หน้าแนะนำตัวของ "เจ๊ก" ขอให้มีวันที่ยอดเยี่ยมครับ! 🎮✨');
+    }
+
+    // Quick Order Game Item
+    function orderGameItem(itemName) {
+      alert(`🛒 คุณสนใจ: "${itemName}"\n\nสามารถกรอกแบบฟอร์มด้านล่าง หรือทัก Line/Facebook หาเจ๊กเพื่อสอบถามข้อมูลเพิ่มเติมได้ทันทีครับ! 💜`);
+      window.location.href = '#contact';
+      const msgField = document.getElementById('senderMsg');
+      if (msgField) {
+        msgField.value = `สวัสดีครับ สนใจสอบถาม ${itemName} ครับผม`;
+      }
+    }
+
+    // Handle Direct Message Submit
+    function handleDmSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('dmForm');
+      const alertBox = document.getElementById('dmSuccessAlert');
+      form.classList.add('hidden');
+      alertBox.classList.remove('hidden');
+    }
+  </script>
 </body>
 </html>
